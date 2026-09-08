@@ -12,7 +12,7 @@ export class RoomEntity{
     @Column({ length: 120 })
     capacity!:number;
     
-    @OneToMany(() => ScreningMovementEntity, (room) => room.movieTitle)
+    @OneToMany(() => ScreningMovementEntity, (screenin) => screenin.room)
     room!: RoomEntity[];
     screenings!:RoomEntity[];
 }
