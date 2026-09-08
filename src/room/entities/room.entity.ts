@@ -1,14 +1,19 @@
+import { ScreningMovementEntity } from "src/screning-movements/entities/screning-movements";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity(room)
+@Entity("room")
 export class RoomEntity{
     @PrimaryGeneratedColumn()
     id!:number;
-    @Column
+   
+    @Column({ length: 120 })
     name!:string;
-    @Column
+    
+    @Column({ length: 120 })
     capacity!:number;
-    @OneToMany (())=>ScreningMovementEntity,
-    (movement)=>movement.room)
-    screenings!:ScreningMovementEntity[];
+    
+    @OneToMany(() => ScreningMovementEntity, (room) => room.movieTitle)
+    room!: RoomEntity[];
+    screenings!:RoomEntity[];
 }
+
